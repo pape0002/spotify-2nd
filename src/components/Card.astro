@@ -1,0 +1,118 @@
+---
+const { title, body, imgPath, type } = Astro.props;
+
+let imgStyle;
+
+if (type === "artist") {
+  imgStyle = "rounded";
+} else {
+  imgStyle = "";
+}
+---
+
+<li>
+  <article>
+    <h3>
+      <a href="#0">{title}</a>
+    </h3>
+    <figure>
+      <img class={imgStyle} src={imgPath} alt="" height="350" width="350" />
+      <button class="play-btn">
+        <svg viewBox="0 0 24 24"
+          ><path
+            d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
+          ></path></svg
+        >
+      </button>
+    </figure>
+    <p>{body}</p>
+  </article>
+</li>
+
+<style>
+  article {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-sm);
+    border-radius: var(--border-radius-medium);
+    transition: background 0.3s ease;
+  }
+
+  article:hover {
+    background: var(--surface-light-hover);
+  }
+
+  h3 {
+    margin-bottom: var(--space-xxxs);
+  }
+
+  h3 a {
+    color: inherit;
+  }
+
+  a::before {
+    content: "";
+    inset: 0;
+    position: absolute;
+  }
+
+  figure {
+    display: grid;
+    grid: "stack";
+    place-items: start;
+    order: -1;
+    margin-bottom: var(--space-md);
+    color: var(--text-white);
+  }
+
+  figure > * {
+    grid-area: stack;
+  }
+
+  img {
+    border-radius: var(--border-radius-small);
+    box-shadow: var(--shadow-default);
+  }
+
+  .rounded {
+    border-radius: var(--border-radius-round);
+  }
+
+  .play-btn {
+    place-self: end;
+    display: inline-grid;
+    place-content: center;
+    background-color: #1ed760;
+    color: var(--text-black);
+    border-radius: var(--border-radius-round);
+    inline-size: var(--space-xxxl);
+    block-size: var(--space-xxxl);
+    margin: var(--space-xs);
+    box-shadow: var(--shadow-medium);
+    transition: 0.3s;
+    isolation: isolate;
+  }
+
+  .play-btn:not(article:hover *) {
+    translate: 0 var(--space-xs);
+    opacity: 0;
+  }
+
+  .play-btn:hover {
+    background: var(--brand-color-highlight);
+    scale: 1.04;
+  }
+
+  .play-btn svg {
+    width: var(--space-lg);
+    height: var(--space-lg);
+  }
+
+  svg {
+    width: var(--space-sm);
+    height: var(--space-sm);
+    margin: var(--space-xxs);
+    display: block;
+  }
+</style>

@@ -1,0 +1,63 @@
+---
+import "../styles/global.css";
+
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Sidebar from "../components/Sidebar.astro";
+import Shelf from "../components/Shelf.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <Header />
+    <Sidebar />
+    <main>
+      <Shelf title="Popular artists" type="artist" />
+      <Shelf title="Popular albums" />
+      <Shelf title="Popular radio" />
+    </main>
+    <Footer />
+  </body>
+
+  <style>
+    body {
+      display: grid;
+      align-content: start;
+      grid-template-rows: auto 1fr auto;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      background: #000;
+      min-height: 100svh;
+      font-family: system-ui, sans-serif;
+    }
+
+    main {
+      background:
+        linear-gradient(#222222, 15%, var(--bg-base) 250px) local,
+        var(--bg-base);
+      padding: 1rem;
+      border-radius: 8px;
+      contain: size;
+      overflow: auto;
+    }
+
+    @media (width <= 800px) {
+      main {
+        grid-row: 2;
+      }
+    }
+
+    @media (width > 800px) {
+      body {
+        grid-template-columns: 360px 1fr;
+      }
+    }
+  </style>
+</html>

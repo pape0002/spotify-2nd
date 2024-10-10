@@ -1,0 +1,26 @@
+---
+import Button from "./Button.astro";
+---
+
+<header>
+  <h1>Header</h1>
+
+  <div class="login-group">
+    <Button variant="tertiary">Sign up</Button>
+    <Button>Log in</Button>
+  </div>
+</header>
+
+<style>
+  header {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding: 0;
+  }
+  .login-group {
+    display: flex;
+    gap: var(--space-xs);
+  }
+</style>

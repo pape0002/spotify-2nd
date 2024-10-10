@@ -1,0 +1,96 @@
+---
+import Card from "./Card.astro";
+
+const { title, type } = Astro.props;
+---
+
+<section>
+  <header>
+    <h2>
+      <a href="#0">{title}</a>
+    </h2>
+    <a href="#0">Show all</a>
+  </header>
+  <ul class="grid-container">
+    <Card
+      title="Astro"
+      body="Build faster websites with less client-side Javascript."
+      imgPath="https://via.assets.so/album.png?id=1&q=95&w=360&h=360&fit=fill"
+      type={type}
+    />
+    <Card
+      title="Astro"
+      body="Build faster websites with less client-side Javascript."
+      imgPath="https://via.assets.so/album.png?id=2&q=95&w=360&h=360&fit=fill"
+      type={type}
+    />
+    <Card
+      title="Astro"
+      body="Build faster websites with less client-side Javascript."
+      imgPath="https://via.assets.so/album.png?id=3&q=95&w=360&h=360&fit=fill"
+      type={type}
+    />
+    <Card
+      title="Astro"
+      body="Build faster websites with less client-side Javascript."
+      imgPath="https://via.assets.so/album.png?id=4&q=95&w=360&h=360&fit=fill"
+      type={type}
+    />
+    <Card
+      title="Astro"
+      body="Build faster websites with less client-side Javascript."
+      imgPath="https://via.assets.so/album.png?id=5&q=95&w=360&h=360&fit=fill"
+      type={type}
+    />
+    <Card
+      title="Astro"
+      body="Build faster websites with less client-side Javascript."
+      imgPath="https://via.assets.so/album.png?id=6&q=95&w=360&h=360&fit=fill"
+      type={type}
+    />
+    <Card
+      title="Astro"
+      body="Build faster websites with less client-side Javascript."
+      imgPath="https://via.assets.so/album.png?id=7&q=95&w=360&h=360&fit=fill"
+      type={type}
+    />
+  </ul>
+
+  <style>
+    section {
+      display: grid;
+      grid-auto-rows: min-content;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    header > a {
+      font-size: var(--font-size-small);
+      font-weight: 500;
+      color: #fff;
+    }
+
+    h2 a {
+      color: inherit;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+      /* hide wrapping rows */
+      grid-template-rows: min-content;
+      grid-auto-rows: 0;
+      /* gap: 0 var(--space-lg); */
+      overflow: hidden;
+    }
+  </style>
+</section>
